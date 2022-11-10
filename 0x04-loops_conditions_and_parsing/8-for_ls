@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#printing current working direcoty
+file=0
+files=$(ls)
+for file in $files
+do 
+ echo "$file" | cut -d "-" -f2
+done

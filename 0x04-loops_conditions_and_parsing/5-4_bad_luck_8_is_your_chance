@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#using while statements to print strings
+VALUE=1
+while [ $VALUE -le 10 ];
+ do 
+   if [[ $VALUE -eq 4 ]]
+   then
+	   echo "bad luck"
+   elif [[ $VALUE -eq 8 ]]
+   then
+	   echo "good luck"
+   else
+	   echo "Best School"
+   fi
+   ((VALUE=VALUE+1))
+done

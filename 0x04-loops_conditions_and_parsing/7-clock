@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#using while statements to print strings
+VALUE=0
+while [ $VALUE -le 12 ];
+ do 
+   echo "Hour: $VALUE"
+   MINUTE=1
+   while [ $MINUTE -le 59 ];
+   do
+	   echo $MINUTE
+	   ((MINUTE++))
+   done
+   ((VALUE++))
+done

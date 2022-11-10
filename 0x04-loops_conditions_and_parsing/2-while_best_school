@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#using while statements to print strings
+VALUE=1
+while [ $VALUE -le 10 ];
+ do
+   echo "Best School"
+   let VALUE=VALUE+1
+done

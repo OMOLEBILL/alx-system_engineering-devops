@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 #to infinity
-LIM=0
-while [[ $LIM -lt 25 ]];
+while :
 do 
  echo "4-to_infinity_and_beyond"
  sleep 2

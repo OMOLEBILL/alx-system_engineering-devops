@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 #stopiing infinity
-kill -9 "$(pgrep -f ./7-highlander)"
+kill -9 "$(pgrep -f ./100-process_and_pid_file)"

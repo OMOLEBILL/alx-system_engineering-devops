@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 #why you no love me
 echo $$ > /var/run/myscript.pid
-var=0
 trap "echo I hate the kill command; /var/run/myscript.pid; exit" SIGTERM
-trap "echo Y U no love me?!" SIGINT
 trap "rm /var/run/myscript.pid; exit" SIGQUIT
+trap "echo Y U no love me?!" SIGINT
+var=0
 while [[ $var -lt 1 ]];
 do
   echo "To infinity and beyond"

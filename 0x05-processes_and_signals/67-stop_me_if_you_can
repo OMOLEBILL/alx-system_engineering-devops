@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+#stopiing infinity
+kill "$(pgrep -f ./7-highlander)"

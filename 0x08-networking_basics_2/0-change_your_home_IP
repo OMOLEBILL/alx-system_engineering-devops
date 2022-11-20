@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 #scipt to change ip address of localhost and facebook
+
+
 cp /etc/host ~/host.copy
 sed -i 's/127.*$/127.0.0.2  localhost\n8.8.8.8  facebook.com/' ~/hosts.cpy
-sudo cp -f ~/hosts.cpy /etc/hosts
+cp -f ~/hosts.cpy /etc/hosts

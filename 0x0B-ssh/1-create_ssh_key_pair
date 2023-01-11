@@ -4,4 +4,4 @@
 #4096 bits
 #protected by betty
 
-ssh-keygen -b 4096 -N "betty" -f ~/.ssh/school
+ssh-keygen -b 4096 -N "betty" -f school

@@ -1,0 +1,9 @@
+# SSH Client Configuration
+# should not accept password 
+
+Host *
+  IdentityFile ~/.ssh/school
+  PreferredAuthentications publickey
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+  PasswordAuthentication no

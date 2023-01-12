@@ -4,8 +4,11 @@
 sudo apt-get update
 sudo apt-get install -y nginx
 
+#create the nginx directory
+sudo mkdir -p /var/www/html
+
 # Configure Nginx to listen on port 80
-sudo sed -i 's/listen.*/listen 80;/' /etc/nginx/sites-available/default
+#sudo sed -i 's/listen.*/listen 80;/' /etc/nginx/sites-available/default
 
 # Create a new index.html file with "Hello World!" content
 echo "Hello World!" | sudo tee /var/www/html/index.html

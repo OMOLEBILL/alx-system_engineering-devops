@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Configures NGINX server to display custom 404 page
+# Page contains the text "Ceci n'est pas une page"
+
+#updating packages before we installng nginx
+sudo apt-get -y update
+sudo apt-get -y upgrade
+
+#installing nginx
+sudo apt-get -y install nginx
+
+#starting the service again
+sudo service nginx start
+
+#custom 404 setup
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
+lines="\\\terror_page 404 /404.html;\n\tlocation = /404.html {\n\t\troot /var/www/html;\n\t\tinternal;\n\t}"
+sudo sed -i "55i $lines" /etc/nginx/sites-available/default
+
+#restarting nginx
+sudo service nginx restart
+sudo service nginx reload

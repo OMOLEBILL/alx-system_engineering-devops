@@ -1,26 +1,28 @@
 #!/usr/bin/env bash
 #setting up a redirection page
 # Update package list and upgrade system
-apt-get update -y
-apt-get upgrade -y
+sudo apt-get update -y
+sudo apt-get upgrade -y
 
 # Install Nginx
-apt-get install nginx -y
+sudo apt-get install nginx -y
 
 # Stop Nginx service
-service nginx stop
+#service nginx stop
 
 # Configure Nginx to listen on port 80
 #sed -i 's/listen 80 default_server;/listen 80;/' /etc/nginx/sites-available/default
 
 # Add "Hello World!" to the default Nginx page
-echo "Hello World!" | tee -a /var/www/html/index.nginx-debian.html
+#echo "Hello World!" | tee -a /var/www/html/index.nginx-debian.html
 
 # Start Nginx service
-service nginx start
+sudo service nginx start
 
 # Configure redirect from /redirect_me to the root
-echo "location /redirect_me { rewrite ^ https://www.google.com permanent; }" | tee -a /etc/nginx/sites-available/default
+lines="\\\trewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;"
+sudo sed -i "53i $lines" /etc/nginx/sites-available/default
 
 # Reload Nginx configuration
-service nginx reload
+sudo service nginx restart
+sudo service nginx reload

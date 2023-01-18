@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Update apt package list
+sudo apt-get update -y
+
+# Install Nginx
+sudo apt-get install nginx -y
+
+sudo ufw allow 'Nginx HTTP'
+
+#Create the custom header file 
+sudo sed -i "11i\\\tadd_header X-Served-By $HOSTNAME;" /etc/nginx/nginx.conf
+
+# Test the Nginx configuration
+sudo nginx -t
+
+# Restart Nginx to apply the changes
+sudo service nginx restart

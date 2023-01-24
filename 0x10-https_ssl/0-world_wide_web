@@ -19,7 +19,7 @@ show_all () {
 }
 if [ ! -z $2 ]
 then
-show_subdomain $2.$1
+show_subdom $2.$1
 else
 show_all $1
 fi

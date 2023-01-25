@@ -36,6 +36,7 @@ defaults
 frontend http-in
         bind *:80
         default_backend servers
+        http-request redirect code 301 location https://%[req.hdr(host)]%[path] if !{ ssl_fc }
 
 backend servers
         balance roundrobin

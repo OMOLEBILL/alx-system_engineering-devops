@@ -13,7 +13,7 @@ if __name__ == "__main__":
     user_todo = get(todos_url).json()
     # get user's name
     user_url = url + "/users/{}".format(argv[1])
-    username = get(user_url).json().get("name")
+    username = get(user_url).json().get("username")
 
     with open("{}.csv".format(argv[1]), "w", newline="") as f:
         writer = csv.writer(f, quoting=csv.QUOTE_ALL)

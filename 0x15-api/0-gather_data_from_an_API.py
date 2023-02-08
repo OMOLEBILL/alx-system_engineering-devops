@@ -15,8 +15,8 @@ if __name__ == "__main__":
     username = dic1.json().get("name")
     lens = len(todo)
 
-    tasks = [todo[i].get("completed") for i in range(lens) if
-             todo[i].get("completed") is True]
+    tasks = [user.get("title") for user in todo if
+             user.get("completed")]
     print(f"Employee {username} is done with tasks({len(tasks)}/{lens}):")
-    for i in range(lens):
-        print('\t', ' ', todo[i].get("title"))
+    for i in tasks:
+        print('\t {}'.format(i))

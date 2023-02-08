@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """this module fetches info from the given url"""
-from requests import get
 from sys import argv
+from sys import argv
+
 
 dic = get(f"https://jsonplaceholder.typicode.com/users/{argv[1]}/todos")
 dic1 = get("https://jsonplaceholder.typicode.com/users")

@@ -1,18 +1,19 @@
 #!/usr/bin/python3
 """this module fetches info from the given url"""
-from sys import argv
-from sys import argv
+import requests
+import sys
 
 
-dic = get(f"https://jsonplaceholder.typicode.com/users/{argv[1]}/todos")
-dic1 = get("https://jsonplaceholder.typicode.com/users")
+dic = requests.get("https://jsonplaceholder.typicode.com/users/{}/todos".
+                   format(sys.argv[1]))
+dic1 = requests.get("https://jsonplaceholder.typicode.com/users")
 todo = dic.json()
 users = dic1.json()
 lens = len(todo)
 user = todo[0].get("userId")
 
-tasks = [todo[i]["completed"] for i in range(lens) if
-         todo[i]["completed"] is True]
+tasks = [todo[i].get("completed") for i in range(lens) if
+         todo[i].get("completed") is True]
 username = ""
 for i in range(len(users)):
     if users[i].get("id") == user:

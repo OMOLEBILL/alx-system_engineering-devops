@@ -1,24 +1,26 @@
 #!/usr/bin/python3
-"""this module fetche info"""
+"""Gets employee details"""
 
-
-import requests
-import sys
+from requests import get
+from sys import argv
 
 
 if __name__ == "__main__":
-    url = "https://jsonplaceholder.typicode.com/"
-    url_todo = url + "users/{}/todos".format(sys.argv[1])
-    dic = requests.get(url_todo)
+    site_url = "https://jsonplaceholder.typicode.com"
+    # get user's todos
+    todos_url = site_url + "/user/{}/todos".format(argv[1])
+    user_todo = get(todos_url).json()
+    # get user's info such as name
+    user_url = site_url + "/users/{}".format(argv[1])
+    user_dits = get(user_url).json()
 
-    url_users = url + "users/{}".format(sys.argv[1])
-    dic1 = requests.get(url_users)
-    todo = dic.json()
-    username = dic1.json().get("name")
-    lens = len(todo)
-
-    tasks = [user.get("title")
-             for user in todo if user.get("completed")]
-    print(f"Employee {username} is done with tasks({len(tasks)}/{lens}):")
-    for i in tasks:
-        print('\t {}'.format(i))
+    username = user_dits.get("name")
+    total_tasks = len(user_todo)
+    completed_task_titles = [user.get("title")
+                             for user in user_todo if user.get("completed")]
+    completed_tasks = len(completed_task_titles)
+    message = "Employee {} is done with tasks({}/{}):".format(
+        username, completed_tasks, total_tasks)
+    print("{}".format(message))
+    for todo in completed_task_titles:
+        print("\t {}".format(todo))

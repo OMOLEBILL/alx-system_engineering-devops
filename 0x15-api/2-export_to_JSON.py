@@ -20,6 +20,6 @@ if __name__ == "__main__":
                "completed": user.get("completed"),
                "username": username} for user in user_todo]
     diction = {}
-    diction[1] = alllist
+    diction[argv[1]] = alllist
     with open("{}.json".format(argv[1]), "w") as f:
         json.dump(diction, f)

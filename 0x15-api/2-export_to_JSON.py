@@ -16,7 +16,7 @@ if __name__ == "__main__":
     username = get(user_url).json().get("username")
 
     alllist = [{
-               "tasks": user.get("title"),
+               "task": user.get("title"),
                "completed": user.get("completed"),
                "username": username} for user in user_todo]
     diction = {}

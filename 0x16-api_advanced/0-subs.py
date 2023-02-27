@@ -1,8 +1,7 @@
 #!/usr/bin/python3
+"""This modules gets the number of subscribers of a
+given subreddit"""
 import requests
-""" This modules gets the number of subscribers of a
-    given subreddit
-"""
 
 
 def number_of_subscribers(subreddit):
@@ -14,7 +13,6 @@ def number_of_subscribers(subreddit):
     response = requests.get(url, headers=headers, allow_redirects=False)
     if response.status_code == 200:
         data = response.json()
-        number = data["data"]["subscribers"]
+        number = data.get("data").get("subscribers")
         return number
-    else:
-        return 0
+    return 0
